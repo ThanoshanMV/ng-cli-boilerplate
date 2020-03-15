@@ -1,0 +1,31 @@
+{
+  "name": "@thanoshanmv/create-app",
+  "version": "1.0.0",
+  "description": "Angular boilerplate",
+  "main": "src/index.js",
+  "bin": {
+    "@thanoshanmv/create-app": "bin/create-app",
+    "create-app": "bin/create-app"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "cli",
+    "angular-boilerplate"
+  ],
+  "author": "Thanoshan MV",
+  "dependencies": {
+    "arg": "^4.1.3",
+    "chalk": "^3.0.0",
+    "esm": "^3.2.25",
+    "execa": "^4.0.0",
+    "inquirer": "^7.1.0",
+    "listr": "^0.14.3",
+    "ncp": "^2.0.0",
+    "pkg-install": "^1.0.0"
+  }
+}
