@@ -46,10 +46,11 @@ export async function createApp(options) {
     targetDirectory: options.targetDirectory || process.cwd()
   };
 
-  const currentFileUrl = import.meta.url;
+  // Import the path module
+  const path = require('path');
   const templateDir = path.resolve(
-    new URL(currentFileUrl).pathname,
-    '../../templates',
+    __dirname,
+    '../templates',
     options.template.toLowerCase()
   );
   options.templateDirectory = templateDir;
