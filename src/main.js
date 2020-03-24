@@ -1,5 +1,6 @@
 import chalk from 'chalk';
 import fs from 'fs';
+import gitignore from 'gitignore';
 import ncp from 'ncp';
 import path from 'path';
 import { promisify } from 'util';
@@ -8,11 +9,24 @@ import Listr from 'listr';
 import { projectInstall } from 'pkg-install';
 
 const access = promisify(fs.access);
+const writeFile = promisify(fs.writeFile);
 const copy = promisify(ncp);
+const writeGitignore = promisify(gitignore.writeFile);
 
 async function copyTemplateFiles(options) {
   return copy(options.templateDirectory, options.targetDirectory, {
     clobber: false
+  });
+}
+
+async function createGitignore(options) {
+  const file = fs.createWriteStream(
+    path.join(options.targetDirectory, '.gitignore'),
+    { flags: 'a' }
+  );
+  return writeGitignore({
+    type: 'Node',
+    file: file
   });
 }
 
@@ -51,6 +65,10 @@ export async function createApp(options) {
     {
       title: 'Copy project files',
       task: () => copyTemplateFiles(options)
+    },
+    {
+      title: 'Create gitignore',
+      task: () => createGitignore(options)
     },
     {
       title: 'Initialize git',
