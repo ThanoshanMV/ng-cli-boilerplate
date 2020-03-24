@@ -5,16 +5,13 @@
 ## Go to the repository directory and install dependencies:
 
 ```bash
-cd Microfrontend-Angular-Boilerplate-with-GitSubtree
+cd ng-cli-boilerplate
 ```
 
 ```bash
-npm install
+npm install -g
 ```
-
-```bash
-npm link
-```
+If any got any permission issues, try: ```sudo npm install -g```
 
 ## Create and go to project directory:
 
