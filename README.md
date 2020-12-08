@@ -11,7 +11,7 @@ cd ng-cli-boilerplate
 ```bash
 npm install -g
 ```
-If any got any permission issues, try: ```sudo npm install -g```
+If any you got any permission issues, try: ```sudo npm install -g```
 
 ## Create and go to project directory:
 
